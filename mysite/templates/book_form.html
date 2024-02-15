@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<img src="{% static 'images/python_django.png' %}" class="imager">
+<img src="{% static 'images/addnew.jpg' %}"  style="position: absolute;top: 40%;left: 75%">
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<div class="detsor">
+{% if form.errors %}
+			{% endif %}
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+{{ form.non_field_errors }}
+<table>
+<tr>
+<td colspan="3"><p style="text-align:center">ADD NEW FOOD DETAILS</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr height="30px">
+<td></td>
+</tr>
+<tr class="rwhi">
+    <td><label for="{{ form.name.id_for_label }}" class="lbla">Food Name</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.name }}</td>
+</tr>
+<tr class="rwhi">
+    <td><label for="{{ form.weight.id_for_label }}" class="lbla">Total Weight</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.weight }}</td>
+</tr>
+<tr class="rwhi">
+    <td><label for="{{ form.locations.id_for_label }}" class="lbla">Location</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.locations }}</td>
+</tr>
+
+<tr class="rwhi">
+    <td><label for="{{ form.document.id_for_label }}" class="lbla">Image</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.document }}</td>
+</tr>
+
+<tr>
+<td></td>
+<td colspan="3"><input type="submit" value="Submit" class="btnsub" /></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</form>
+</div>
+{% endblock %}

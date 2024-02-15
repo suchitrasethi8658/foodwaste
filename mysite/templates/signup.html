@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<img src="{% static 'images/register2.jpg'%}" class="img-signup">
+<div class=" regform">
+<div class="loginform">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <h2 class="loginhead" style="margin-left:-50px">Sign up</h2>
+  <form method="post" autocomplete=off>
+    {% csrf_token %}
+	<table style="margin-left:-200px;">
+    {% for field in form %}
+	  <tr>
+	  <td>
+        <p>{{ field.label_tag }}</p><br>
+        </td><td>
+		{{ field }}
+		</td>
+        {% if field.help_text %}
+          <td><small style="color: white">{{ field.help_text }}</small></td>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+	</tr>
+	</table>
+    <button type="submit" class="btn-login" style="margin-left:-80px;">Sign up</button>
+  </form>
+  </div>
+  </div>
+{% endblock %}

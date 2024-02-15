@@ -1,0 +1,112 @@
+*{
+margin:0px;
+padding:0px;
+}
+body{
+	background-color: #f1f1f1;
+}
+.tit{
+	margin: auto;
+    width: 50%;
+	text-align: center;
+	color:white;
+}
+.tab{
+	border:1px solid white;
+	padding:20px;
+	background-color:white;
+	margin-left:15px;
+}
+.tab:hover{
+	color:white;
+	background-color:#6e7f80;
+}
+a{
+	text-decoration:none;
+}
+.nav{
+	margin: auto;
+    width: auto;
+	text-align: center;
+	color:white;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.loginhead{
+	color:white;
+	margin-bottom:50px;
+}
+.loginform{
+	position:absolute;
+	top:38%;
+	left:38%;
+}
+.btn-login{
+	margin-top:30px;
+	margin-left:40px;
+	margin-bottom:30px;
+	width:100px;
+	height:30px;
+	background-color: #36454f;
+	//background-color:white;
+	color:white;
+	border:1px solid #355F80;
+}
+.reg{
+	//background-color:white;
+	background-color: #36454f;
+	padding:8px;
+	color:white;
+}
+.reg:hover,.btn-login:hover{
+	background:#355F80;
+	border:1px solid white;
+	//color:#77aaff;
+	color:#ffffff;
+}
+p{
+	color:white;
+}
+.logincontainer{
+	width:300px;
+	height:400px;
+	margin-left:450px;
+	margin-top:-420px;
+	border:1px solid white;
+	//background-color: #355F80;
+	background-color: #708090;
+}
+/*.logincontainer:hover{
+	border-radius: 35px;
+}*/
+input[type=text], input[type=password], input[type=number], input[type=email], {
+	height:25px;
+	background: #355F80;
+	color:white;
+}
+input[type=text]:hover, input[type=password]:hover, input[type=number]:hover, input[type=email]:hover{
+	background: white;
+	border-radius: 8px;
+	padding-left:8px;
+	color:#355F80;
+}
+.imgstyl {
+	background-color: #708090;
+}
+.imgstyl:hover{
+	border:1px solid green;
+	background-color: #f1f1f1;
+}
+.regform{
+	margin-top:-350px;
+	margin-left:200px;
+	height:380px;
+	width:770px;
+	background-color: #708090;
+}
+.img-signup{
+	height:300px;
+	width:300px;
+	margin-left:1000px;
+	margin-top:100px;
+}

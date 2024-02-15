@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<img src="{% static 'images/orphanage2.png' %}" style="width:200px;position:absolute;top:80%;left:2%;" class="blink-image">
+<img src="{% static 'images/orphanage2.png' %}" style="width:200px;position:absolute;top:20%;left:40%;" class="blink-image">
+<img src="{% static 'images/orphanage2.png' %}" style="width:200px;" class="blink-image">
+<a href="{% url 'addorphan' %}"><p class="par">Add New</p></a>
+<table class="listtbl hovertable" style="margin-left:-100px;margin-bottom:100px;">
+<tr height="100px">
+<th width="100px"><p>Orphanage Name</p></th>
+<th width="100px"><p>Orphanage Location</p></th>
+<th width="100px"><p>Total People</p></th>
+<th width="100px"><p>Mobile Number</p></th>
+<th width="100px"><p>Update</p></th>
+<th width="100px"><p>Delete</p></th>
+</tr>
+    {% for book in obj_list %}
+		<tr>
+			<td><p>{{ book.oname }}</p></td>
+			<td><p>{{ book.olocation }}</p></td>
+			<td><p>{{ book.totalppl }}</p></td>
+			<td><p>{{ book.omobile }}</p></td>
+			<td><a href="{% url 'update_orp_det' book.id %}">Update</a></td>
+			<td><a href="{% url 'delete_orp_det' book.id %}">Delete</a></td>
+	{% endfor %}
+	</tr>
+</table>
+{% endblock %}

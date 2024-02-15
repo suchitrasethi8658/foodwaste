@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<form method="post">
+{% csrf_token %}
+    <table  style="background:#708090;padding:50px;position:absolute;top:30%;left:35%;">
+	<tr>
+	<td><p>User Name</p></td>
+	<td width="20px"><p> : </p></td>
+	<td><p>{{ object.oname }}</p></td>
+	</tr>
+	<tr>
+	<td><p>Orphanage Location</p></td>
+	<td><p> : </p></td>
+	<td><p>{{ object.olocation }}</p></td>
+	</tr>
+	<tr>
+	<td><p>Total People</p></td>
+	<td><p> : </p></td>
+	<td><p>{{ object.totalppl }}</p></td>
+	</tr>
+	<tr>
+	<td><p>Mobile Number</p></td>
+	<td><p> : </p></td>
+	<td><p>{{ object.omobile }}</p></td>
+	</tr>
+	
+	<tr>
+	<td height="20px"></td>
+	</tr>
+    <tr>
+	<td colspan="3"><p style="font-size:20px">Are you sure you want to delete "{{ object.oname }}" ?</p></td>
+	</tr>
+    <tr>
+	<td><input type="submit" value="DELETE" style="position:absolute;left:40%;background:white;margin-top:10px;color:#708090;padding:10px;"/></td>
+	</tr>
+	</table>
+</form>
+{% endblock %}

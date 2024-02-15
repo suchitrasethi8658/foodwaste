@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<img src="{% static 'images/python_img.png' %}" class="imgstyl" style="border: 1px solid white;padding:10px;width:400px;height:400px;margin-left:800px;margin-top:80px">
+<img src="{% static 'images/logimg.gif' %}" style="margin-left:-1150px;margin-bottom:100px;height:200px;width:400px">
+<div class="logincontainer">
+	<div class="loginform">
+		<h2 class="loginhead">PYTHON LOGIN</h2>
+			{% if form.errors %}
+				<p style="color: red">Your username and password didn't match. Please try again.</p>
+			{% endif %}
+			<form method="post" autocomplete=off>
+			{% csrf_token %}
+				<input type="hidden" name="next" value="{{ next }}" />
+				{% for field in form %}
+					<p>
+						{{ field.label_tag }}<br/>
+						{{ field }}<br/><br/>
+						{% for error in field.errors %}
+							<p style="color: red">{{ error }}</p>
+						{% endfor %}
+					{% if field.help_text %}
+						<p><small style="color: grey">{{ field.help_text }}</small></p>
+					{% endif %}
+					</p>
+				{% endfor %}
+					<button type="submit" class="btn-login" style="margin-left:40px;">Log in</button><br/>
+				<a href="{% url 'signup' %}" class="reg">New to My Site? Sign up</a>
+			</form>
+	</div>
+	</div>
+{% endblock %}

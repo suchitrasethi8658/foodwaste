@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<div class="detsor">
+{% if form.errors %}
+			{% endif %}
+<form method="post" autocomplete=off>
+{% csrf_token %}
+
+{{ form.non_field_errors }}
+<table>
+<tr class="rwhi">
+    <td>{{ form.oname.errors }}</td>
+    <td><label for="{{ form.oname.id_for_label }}" class="lbla">Orphanage Name</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.oname }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.olocation.errors }}</td>
+    <td><label for="{{ form.olocation.id_for_label }}" class="lbla">Orphanage Location</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.olocation }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.totalppl.errors }}</td>
+    <td><label for="{{ form.totalppl.id_for_label }}" class="lbla">Total People</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.totalppl }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.omobile.errors }}</td>
+    <td><label for="{{ form.omobile.id_for_label }}" class="lbla">Mobile Number</label></td>
+	<td class="lbla" style="width:50px;text-align:center">:</td>
+    <td>{{ form.omobile }}</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="3"><input type="submit" value="Submit" class="btnsub" /></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</form>
+</div>
+{% endblock %}

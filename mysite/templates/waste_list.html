@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<div class="datagrid">
+<table class="listtbl hovertable" style="margin-left:-100px;margin-bottom:100px;">
+<tr height="100px">
+<th width="100px"><p>Food Name</p></th>
+<th width="100px"><p>Weight</p></th>
+<th width="100px"><p>Locations</p></th>
+<th width="100px"><p>Images</p></th>
+<th width="100px"><p>Allocate</p></th>
+<th width="100px"><p>Update</p></th>
+<th width="100px"><p>Delete</p></th>
+</tr>
+    {% for book in object_list %}
+		<tr class="alt">
+			<td><p>{{ book.name }}</p></td><td><p>{{ book.weight }}</p></td><td><p>{{ book.locations }}</p></td>
+			{% if not book.document %}
+				<td><a href="{% static 'images/defaultfood.png' %}" target="_blank"><img src="{% static 'images/defaultfood.png' %}" style="width:100px;height:100px"></a></td>
+			{% else %}
+				<td><a href="{{ book.document.url }}" target="_blank"><img src="{{ book.document.url }}" style="width:100px;height:100px"></a></td>
+			{% endif %}
+            {% if book.allocation == 'no' or book.allocation == '' %}
+                 <td><a href="{% url 'allocate_dets' book.id %}">Allocate</a></td>
+            {% else %}
+				<td>{{ book.allocation }}</td>
+			{% endif %}
+			<td><a href="{% url 'update_det' book.id %}">Update</a></td>
+			<td><a href="{% url 'delete_det' book.id %}">Delete</a></td>
+	{% endfor %}
+	</tr>
+</table>
+</div>
+{% endblock %}

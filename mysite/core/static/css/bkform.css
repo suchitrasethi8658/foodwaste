@@ -1,0 +1,238 @@
+.dets{
+	border:1px double white;
+	border-width:5px;
+	background: #355F80;
+	position:absolute;
+	top:35%;
+	left:40%;
+	margin-top:-60px;
+	margin-bottom:100px;
+	padding:50px;
+	margin-left:-80px;
+}
+.btnsub{
+	border:1px solid white;
+	background:#355F80;
+	color:white;
+	padding:10px;
+	margin-left:80px;
+	margin-top:40px;
+}
+.btnsub:hover{
+	background:white;
+	color:#355F80;
+}
+.listtbl{
+	position: absolute;
+    top: 40%;
+    left: 25%;
+}
+.par{
+	position: absolute;
+    top: 25%;
+	width:auto;
+	display:inline-block;
+	padding:10px;
+	color:black;
+	border:1px solid #6e7f80;
+	margin-left:1000px;
+}
+.par:hover{
+	background:#6e7f80;
+	color:white;
+}
+.inputtype{
+	width:100px;
+	margin-left:120px;
+	margin-top:30px;
+	padding:10px;
+	background:white;
+	color:#355F80;
+	border:1px solid #355F80;
+}
+.inputtype:hover{
+	color:white;
+	background:#355F80;
+}
+.lbl{
+	color:white;
+}
+.lbla{
+	color:white;
+}
+.imgsi{
+	height:200px;
+	width:250px;
+}
+tr.rwhi{
+	height:30px;
+}
+
+/* ******* TABLE STYLE 
+
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+******* */
+table.hovertable td,table.hovertable td p,table.hovertable a{
+	color:white;
+	background:black;
+	text-align: center;
+	padding:10px;
+}
+table.hovertable th{
+	background:#40A173;
+}
+.detsor{
+	width:auto;
+	border:1px double white;
+	border-width:5px;
+	background: #355F80;
+	position:absolute;
+	top:35%;
+	left:40%;
+	padding:50px;
+	margin-left:-80px;
+}
+.imager {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    width: 150px;
+    height: 150px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/* IE */
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+.blink-image {
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake{
+	-webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 0.8s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+.subnav
+{
+	float:left;
+	margin-top:50px;
+	margin-bottom:40px;
+}
+.tabing{
+	padding-top:15px;
+	padding-bottom:15px;
+	width:300px;
+	background:#6E7F80;
+	border:1px solid black;
+	color:white;
+}
+.hero-unit-table{
+	width:500px;
+	margin-left:170px;
+	margin-top:150px;
+}
+.charts_container{
+	margin-top:-100px;
+}
+.trb{
+	margin-left:200px;
+	padding:10px;
+	background:#6E7F80;
+	color:white;
+}
+.trb:hover, .tabing:hover{
+	border:1px solid red;
+	color:red;
+	background:white;
+}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<div class="dets">
+{% if form.errors %}
+			{% endif %}
+<form method="post" enctype="multipart/form-data" autocomplete=off>
+{% csrf_token %}
+{{ form.non_field_errors }}
+<table>
+<tr class="rwhi">
+    <td>{{ form.name.errors }}</td>
+    <td><label for="{{ form.name.id_for_label }}" class="lbl">Food Name</label></td>
+	<td class="lbl" style="width:50px;text-align:center">:</td>
+    <td>{{ form.name }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.weight.errors }}</td>
+    <td><label for="{{ form.weight.id_for_label }}" class="lbl">Total Weight</label></td>
+	<td class="lbl" style="width:50px;text-align:center">:</td>
+    <td>{{ form.weight }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.locations.errors }}</td>
+    <td><label for="{{ form.locations.id_for_label }}" class="lbl">Area</label></td>
+	<td class="lbl" style="width:50px;text-align:center">:</td>
+    <td>{{ form.locations }}</td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.allocation.errors }}</td>
+    <td><label for="{{ form.allocation.id_for_label }}" class="lbl">Allocation</label></td>
+	<td class="lbl" style="width:50px;text-align:center">:</td>
+    <td>{{ form.allocation }}</td>
+	<td><a href="{% url 'orphanagedet'%}">View Orphanage Details</a></td>
+</tr>
+<tr class="rwhi">
+    <td>{{ form.document.errors }}</td>
+    <td><label for="{{ form.document.id_for_label }}" class="lbl">Food Image  </label></td>
+	<td class="lbl" style="width:50px;text-align:center">:</td>
+    <td><img src="{{ form.instance.document.url }}" class="imgsi"/></td>
+</tr>
+<tr>
+<td></td>
+<td colspan="3"><input type="submit" name="submit" value="submit" class="inputtype"/></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</form>
+</div>
+{% endblock %}

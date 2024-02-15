@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>{% block title %}Food Wastage{% endblock %}</title>
+  </head>
+  <body class="cse">
+    <header style="background:#6e7f80">
+      <h1 class="tit">Food Waste Management</h1>
+	  <div class="nav">
+      {% if user.is_authenticated %}
+        <a href="{% url 'home' %}" class="tab">Home</a>
+        <a href="{% url 'addnew' %}" class="tab">Add New Food</a>
+        <a href="{% url 'addorphan' %}" class="tab">Add New Orphanage Details</a>
+        <a href="{% url 'orphanagedet' %}" class="tab">Distribution details</a>
+        <a href="{% url 'charts' 'pie' 'totppl' %}" class="tab">Charts</a>
+        <a href="{% url 'logout' %}" class="tab">Logout</a>
+      {% else %}
+		<a href="{% url 'login' %}" class="tab">LOGIN</a>
+		<a href="{% url 'signup' %}" class="tab">REGISTRATION</a>
+      {% endif %}
+	  </div>
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

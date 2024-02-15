@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bkform.css' %}">
+<table>
+<tr>
+<td><a href="{% url 'charts' chart_type 'weight' %}" class="trb" style="margin-left:500px;margin-top:100px">Weight Analysis</a></td>
+<td><a href="{% url 'charts' chart_type 'totppl' %}" class="trb" style="margin-left:50px;">Total People Analysis</a></td>
+</tr>
+</table>
+<div class="subnav">
+<table>
+<tr style="height:50px;">
+<td><a href="{% url 'charts' 'pie' cha_obj %}" class="tabing" style="padding-left:50px;padding-right:120px;">Pie</a></td>
+</tr>
+<tr style="height:50px;">
+<td><a href="{% url 'charts' 'bar' cha_obj %}" class="tabing" style="padding-left:50px;padding-right:117px;">Bar</a></td>
+</tr>
+<tr style="height:50px;">
+<td><a href="{% url 'charts' 'ring' cha_obj %}" class="tabing" style="padding-left:50px;padding-right:109px;">Ring</a></td>
+</tr>
+<tr style="height:50px;">
+<td><a href="{% url 'charts'  'exploded' cha_obj %}" class="tabing" style="padding-left:50px;padding-right:55px;">Exploded Pie</a></td>
+</tr>
+<tr  style="height:50px;">
+<td><a href="{% url 'charts' 'pareto' cha_obj %}" class="tabing" style="padding-left:50px;padding-right:100px;">Pareto</a></td>
+</tr>
+</table>
+</div>
+<script src="{% static 'js/awesomechart.js' %}"></script>
+<div class="hero-unit-table">
+                            <div class="charts_container">
+                                <div class="chart_contner">
+                                    <div class="alert alert-info"><p style="text-transform: uppercase;margin-left:100px;color:red;font-weight: bold;">{{chart_type}} chart for {{cha_obj}} Analysis</p></div>  
+                                    <canvas id="motorcycle_graph" width="800" height="400" style="margin-top:-300px;margin-left:80px">
+                                        Your web-browser does not support the HTML 5 canvas element.
+                                    </canvas>
+                                </div>
+                            </div>
+							<table style="background:#f1f1f1;margin-left:900px;margin-top:-300px;width:200px;">
+							<tr>
+								<th style="border:1px solid black;background:red;color:white;padding:5px">Item</th>
+								<th style="border:1px solid black;background:red;color:white;padding:5px;">Details</th>
+							</tr>
+							{% if cha_obj == 'weight' %}
+								{% for books in book_obj %}
+								<tr>
+									<td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black;background:#6E7F80;color:white">{{ books.name }}</td>
+									<td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black;background:#6E7F80;color:white">{{ books.weight }}</td>
+								{% endfor %}
+								</tr>
+							</table>
+							{% elif cha_obj == 'totppl' %}
+								{% for books in book_obj %}
+									<tr style="border:1px solid black">
+										<td style="border:1px solid black;background:#6E7F80;color:white">{{ books.oname }}</td>
+										<td style="border:1px solid black;background:#6E7F80;color:white">{{ books.totalppl }}</td>
+								{% endfor %}
+								</tr>
+							</table>
+							{% endif %}
+						</div>
+<script type="application/javascript">
+var motorcycle_chart = new AwesomeChart('motorcycle_graph');
+{% if cha_obj == 'weight' %}
+	motorcycle_chart.data = [
+		{% for orph in book_obj %}
+			{{orph.weight}},
+		{% endfor %}
+	];
+	motorcycle_chart.labels = [
+		{% for orph in book_obj %}
+			{{orph.weight}},
+		{% endfor %}
+	];
+{% elif cha_obj == 'totppl' %}
+	motorcycle_chart.data = [
+		{% for orph in book_obj %}
+			{{orph.totalppl}},
+		{% endfor %}
+		];
+	motorcycle_chart.labels = [
+		{% for orph in book_obj %}
+			{{orph.totalppl}},
+		{% endfor %}
+		];
+{% endif %}
+motorcycle_chart.colors = ['gold', 'skyblue', 'grey', 'pink', 'darkblue', 'red', 'green'];
+    motorcycle_chart.randomColors = true;
+    motorcycle_chart.animate = true;
+    motorcycle_chart.animationFrames = 30;
+	{% if chart_type == 'pie' %}
+	motorcycle_chart.chartType = "pie";
+	{% elif chart_type == 'bar' %}
+	motorcycle_chart.chartType = "bar";
+	{% elif chart_type == 'ring' %}
+	motorcycle_chart.chartType = "ring";
+	{% elif chart_type == 'exploded' %}
+	motorcycle_chart.chartType = "exploded pie";
+	{% elif chart_type == 'horizontal' %}
+	motorcycle_chart.chartType = "horizontal bars";
+	{% elif chart_type == 'pareto' %}
+	motorcycle_chart.chartType = "pareto";
+	{% endif %}
+    motorcycle_chart.draw();
+	</script>
+{% endblock %}
